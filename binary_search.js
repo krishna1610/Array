@@ -35,3 +35,17 @@ const binary_search1 = (sortedArr, num, left, right) => {
 };
 console.log("1st ans", binary_search1([1, 2, 3, 4, 5, 6], 3, 0, 5));
 console.log("2nd ans", binary_search1([1, 2, 3, 4, 5, 6], 2, 0, 5));
+
+function binarySearchLeftLimit(arr, x) {
+  let index = binary_search(arr, x);
+  if (index < 0) {
+    return index;
+  }
+  for (let i = index; i >= 0; i--) {
+    if (arr[i] < x) {
+      return i + 1;
+    }
+  }
+  return 0;
+}
+console.log(binarySearchLeftLimit([1, 2, 3, 4, 5, 6], 5));
